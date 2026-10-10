@@ -1,0 +1,26 @@
+{
+  "name": "hacka-box",
+  "version": "3.0.0",
+  "description": "📊 Update a gist to contain your weekly WakaTime stats",
+  "license": "ISC",
+  "scripts": {
+    "build": "ncc build index.js --out dist --minify"
+  },
+  "dependencies": {
+    "@octokit/rest": "^22.0.1",
+    "axios": "^1.13.6",
+    "dotenv": "^16.0.3",
+    "wakatime-client": "https://github.com/quackclub/wakatime-client.git"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4",
+    "husky": "3.1.0",
+    "prettier": "1.19.1",
+    "pretty-quick": "2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
