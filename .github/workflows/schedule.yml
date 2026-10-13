@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Update gist
+        if: ${{ secrets.GH_TOKEN != '' && secrets.GIST_ID != '' && secrets.WAKATIME_API_KEY != '' }}
         uses: quackclub/hacka-box@main
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
