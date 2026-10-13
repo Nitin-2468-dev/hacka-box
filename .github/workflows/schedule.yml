@@ -7,13 +7,14 @@ on:
 jobs:
   update-gist:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIST_ID: ${{ secrets.GIST_ID }}
+      WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
     steps:
       - uses: actions/checkout@master
       - name: Update gist
-        if: ${{ secrets.GH_TOKEN != '' && secrets.GIST_ID != '' && secrets.WAKATIME_API_KEY != '' }}
+        if: ${{ env.GH_TOKEN != '' && env.GIST_ID != '' && env.WAKATIME_API_KEY != '' }}
         uses: quackclub/hacka-box@main
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.GIST_ID }}
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           WAKATIME_API_URL: https://hackatime.hackclub.com/api/hackatime/v1
